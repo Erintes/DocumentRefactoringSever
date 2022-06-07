@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>DocumentEditor</title>
+    <link rel="stylesheet" href="/Styles/style.css">
+</head>
+<body>
+    <div id="header">
+        <p id="name">Емельянов Глеб</p>
+        <a href="/registration" id="registrationButton">регистрация</a>
+        <a href="/login" id="loginButton">вход</a>
+        <div id="exit">выход</div>
+    </div>
+    <div id="standardWindow">
+        <p>Выбор стандарта</p>
+        <select size="1" id="selector">
+            <option disabled>Выберете стандарт</option>
+            <option value="ГОСТ 7.32-2017">ГОСТ 7.32-2017</option>
+        </select>
+        <input type="submit" value="выбрать" id="chooseStandard" />
+    </div>
+    <div id="uploadWindow">
+        <p>Выберете документ</p>
+        <form action="uploading" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="-1" id="userId">
+            <input type="file" name="uploads" accept=".docx" id="uploadedFile" />
+            <input type="submit" value="Загрузить" id="confirmUpload" />
+        </form>
+    </div>
+    <div id="content">
+        <div id="uploaded">
+            <div id="uploadDocument">
+                <div id="plusVertical"></div>
+                <div id="plusHorizontal"></div>
+            </div>
+        </div>
+        <div id="separator"></div>
+        <div id="edited">
+        </div>
+    </div>
+
+    <script>
+        var tokenKey = "accessToken";
+
+
+        async function authorizationAsync() {
+            const formData = new FormData();
+
+            formData.append("login", document.getElementById("loginAuthorization").value);
+            formData.append("password", document.getElementById("passwordAuthorization").value);
+
+            const response = await fetch("/authorization", {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json"
+                },
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (response.ok === true) {
+                document.getElementById("userName").innerText = data.login;
+                document.getElementById("userInfo").style.display = "block";
+                document.getElementById("uploadFile").style.display = "block";
+                document.getElementById("authorizationForm").style.display = "none";
+                document.getElementById("registrationForm").style.display = "none";
+
+                sessionStorage.setItem(tokenKey, data.Token);
+                console.log(data.Token);
+            }
+            else {
+                console.log("Error: ", response.status, data.errorText);
+            }
+        };
+
+        async function uploadFileAsync() {
+            const formData = new FormData();
+
+            formData.append("file", document.getElementById("uploadedFile").value);
+
+            const response = await fetch("/uploading", {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-type": "multipart/form-data; boundary=-------------573cf973d5228",
+                },
+                body: formData
+            });
+
+            //document.getElementById("uploadedFile").value = '';
+            await response.json();
+        }
+
+        async function getData(url) {
+            //const token = sessionStorage.getItem(tokenKey);
+
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json",
+                }
+            });
+            const data = await response.json();
+
+            if (url === "/getUploaded") {
+                for (let i = 0; i < data.length; i++) {
+                    createUploadedDocument(data[i].id, data[i].path, data[i].name);
+                }
+            }
+            if (url === "/getEdited") {
+                for (let i = 0; i < data.length; i++) {
+                    createEditedDocument(data[i].id, data[i].path, data[i].name);
+                }
+            }
+        };
+
+        function reset(form) {
+            document.getElementById("login" + form).value = '';
+            document.getElementById("password" + form).value = '';
+        }
+
+        function createUploadedDocument(id, url, name) {
+            const div = document.createElement('div');
+            div.className = "document uploadedDocument";
+
+            const imgL = document.createElement('img');
+            imgL.className = "wordLogo";
+            imgL.src = "/Images/word.png";
+
+            const p = document.createElement('p');
+            p.className = "documentName";
+            if (name.length > 11) {
+                p.innerHTML = name.substring(0, 8) + "...";
+            }
+            else {
+                p.innerHTML = name;
+            }
+
+            const imgDel = document.createElement('img');
+            imgDel.className = "delete documentButtons";
+            imgDel.src = "/Images/delete.png";
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = name;
+
+            const imgDownload = document.createElement('img');
+            imgDownload.className = "download documentButtons";
+            imgDownload.src = "/Images/download.png";
+            imgDownload.id = "u" + id;
+
+            a.append(imgDownload);
+
+            const imgEdit = document.createElement('img');
+            imgEdit.className = "edit documentButtons";
+            imgEdit.id = "u" + id;
+            imgEdit.src = "/Images/edit.png";
+
+            div.append(imgL);
+            div.append(p);
+            div.append(imgDel);
+            div.append(a);
+            div.append(imgEdit);
+            document.getElementById("uploaded").append(div);
+        }
+
+        function createEditedDocument(id, url, name) {
+            const div = document.createElement('div');
+            div.className = "document editedDocument";
+
+            const imgL = document.createElement('img');
+            imgL.className = "wordLogo";
+            imgL.src = "/Images/word.png";
+
+            const p = document.createElement('p');
+            p.className = "documentName";
+            if (name.length > 11) {
+                p.innerHTML = name.substring(0, 8) + "...";
+            }
+            else {
+                p.innerHTML = name;
+            }
+
+
+            const imgDel = document.createElement('img');
+            imgDel.className = "delete documentButtons";
+            imgDel.src = "/Images/delete.png";
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = name;
+
+            const imgDownload = document.createElement('img');
+            imgDownload.className = "download documentButtons";
+            imgDownload.src = "/Images/download.png";
+            imgDownload.id = "e" + id;
+
+            a.append(imgDownload);
+
+            div.append(imgL);
+            div.append(p);
+            div.append(imgDel);
+            div.append(a);
+            document.getElementById("edited").append(div);
+        }
+
+        function clearEdited() {
+            const ed = document.getElementById("edited");
+            while (ed.firstChild) {
+                ed.removeChild(ed.firstChild);
+            }
+        }
+
+        async function EditDocument(id, documentId, standard) {
+            const request = {
+                id: id,
+                documentId: documentId,
+                standard: standard
+            };
+            const json = JSON.stringify(request);
+            const response = await fetch("/editing", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: json
+            });
+            if (response.ok === true) {
+                clearEdited();
+                getData("/getEdited");
+            }
+        }
+
+        //document.getElementById("submitAuthorization").addEventListener("click", e => {
+
+        //    e.preventDefault();
+        //    authorizationAsync();
+        //});
+
+        //document.getElementById("submitRegistration").addEventListener("click", e => {
+
+        //    e.preventDefault();
+        //    registrationAsync();
+        //});
+
+        //document.getElementById("logOut").addEventListener("click", e => {
+
+        //    e.preventDefault();
+        //    document.getElementById("userName").innerText = "";
+        //    document.getElementById("userInfo").style.display = "none";
+        //    document.getElementById("uploadFile").style.display = "none";
+        //    document.getElementById("registrationForm").style.display = "block";
+        //    document.getElementById("authorizationForm").style.display = "block";
+        //    sessionStorage.removeItem(tokenKey);
+        //});
+
+
+        //document.getElementById("exit").addEventListener("click", async e => {
+        //    //for (i = 1; i < 6; i++) {
+        //    //    createUploadedDocument(i, "/uploads/Text.docx", "File name " + i);
+        //    //}
+
+        //    const response = await fetch("/getUploaded", {
+        //        method: "GET",
+        //        headers: {
+        //            "Accept": "application/json",
+        //        }
+        //    });
+        //    const data = JSON.parse(await response.json());
+        //    for (const i = 0; i < data.length; i++) {
+        //        createUploadedDocument(data[i].Id, data[i].Path, date[i].Name);
+        //    }
+        //});
+
+        document.body.addEventListener("click", function (e) {
+            const elem = e.target.closest(".edit");
+            if (elem) {
+                const wind = document.getElementById("standardWindow");
+                wind.style.display = "block";
+                const id = Number(elem.id.substring(1, elem.id.length));
+                sessionStorage.setItem("documentId", id);
+                console.log(id);
+            }
+        });
+
+        document.body.addEventListener("click", function (e) {
+            const elem = e.target.closest(".delete");
+            if (elem) {
+                const parent = elem.parentNode;
+                parent.style.display = "none";
+            }
+        });
+
+        document.getElementById("uploadDocument").addEventListener("click", e => {
+            var wind = document.getElementById("uploadWindow");
+            wind.style.display = "block";
+        })
+
+        //document.getElementById("confirmUpload").addEventListener("click", e => {
+        //    e.preventDefault();
+        //    uploadFileAsync();
+        //})
+
+        document.getElementById("chooseStandard").addEventListener("click", e => {
+            const s = document.getElementById("selector");
+            const standard = s.options[s.selectedIndex].value;
+            const documentId = sessionStorage.getItem("documentId");
+            const wind = document.getElementById("standardWindow");
+            wind.style.display = "none";
+            EditDocument(1, documentId, standard);
+        });
+
+        getData("/getUploaded");
+        getData("/getEdited");
+
+        document.getElementById("userId").value = "1";
+    </script>
+</body>
+</html>

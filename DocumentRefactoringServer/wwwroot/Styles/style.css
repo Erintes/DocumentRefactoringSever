@@ -1,0 +1,295 @@
+@font-face {
+	font-family: Inter;
+	src: url(/Fonts/Inter-Regular.ttf);
+}
+
+body {
+	margin: 0;
+}
+
+#name {
+	display: inline-block;
+	width: 450px;
+	margin: 0;
+	margin-left: 20px;
+	float: left;
+	margin-top: 21px;
+	margin-bottom: 21px;
+}
+
+#header {
+	margin: 0;
+	font-family: Inter;
+	font-size: 40px;
+	height: 108px;
+	background-color: #64A9E8;
+	color: #FFFFFF;
+}
+
+	#header a {
+		display: none;
+		color: #FFFFFF;
+		text-decoration: none;
+		margin-top: 21px;
+		margin-bottom: 21px;
+		float: right;
+		margin-right: 50px;
+	}
+
+#exit {
+	display: inline-block;
+	float: right;
+	width: 109px;
+	height: 51px;
+	text-align: center;
+	margin-top: 28px;
+	margin-bottom: 28px;
+	margin-right: 50px;
+}
+
+#registrationButton, #exit {
+}
+
+#content {
+	margin: 0;
+	position: relative;
+}
+
+	#content div {
+		display: inline-block;
+	}
+
+#standardWindow {
+	display: none;
+	width: 320px;
+	height: 180px;
+	background-color: #64A9E8;
+	color: #FFFFFF;
+	font-family: Inter;
+	font-size: 30px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 999;
+	border: 1px solid black;
+}
+
+#uploadWindow {
+	display: none;
+	width: 320px;
+	height: 180px;
+	background-color: #64A9E8;
+	color: #FFFFFF;
+	font-family: Inter;
+	font-size: 30px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 999;
+	border: 1px solid black;
+}
+
+#uploadWindow p {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	text-align: center;
+}
+
+#standardWindow p {
+	margin: 15px;
+	text-align: center;
+}
+
+#standardWindow select {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 40px;
+	width: 280px;
+	height: 30px;
+	font-size: 24px;
+}
+
+#standardWindow input {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80px;
+	height: 30px;
+	background-color: #FFFFFF;
+	font-family: Inter;
+	font-size: 14px;
+}
+
+#uploadWindow input {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	height: 30px;
+	font-family: Inter;
+	font-size: 14px;
+}
+
+#confirmUpload {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80px;
+	height: 30px;
+	background-color: #FFFFFF;
+	font-family: Inter;
+	font-size: 14px;
+}
+
+#separator {
+	display: inline-block;
+	position: absolute;
+	left: 50%;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: 0;
+	width: 3px;
+	background-color: #64A9E8;
+}
+
+#uploaded {
+	display: inline-block;
+	position: relative;
+	box-sizing: border-box;
+	padding-top: 15px;
+	padding-left: 15px;
+	width: 49vw;
+}
+
+#edited {
+	display: inline-block;
+	box-sizing: border-box;
+	padding-top: 15px;
+	padding-right: 15px;
+	width: 49vw;
+	float: right;
+}
+
+#uploadDocument {
+	position: absolute;
+	width: 56px;
+	height: 56px;
+	top: auto;
+	bottom: 10px;
+	left: auto;
+	right: 10px;
+	background-color: #64A9E8;
+}
+
+	#uploadDocument div {
+		background-color: white;
+		border-radius: 2px;
+	}
+
+#plusVertical {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 5px;
+	height: 40px;
+}
+
+#plusHorizontal {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 40px;
+	height: 5px;
+}
+
+.document {
+	display: inline-block;
+	position: relative;
+	padding: 0;
+	height: 220px;
+	width: 152px;
+	margin: 15px;
+	border: 1px solid #474747;
+}
+
+.wordLogo {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 97px;
+	height: 107px;
+}
+
+.documentName {
+	display: block;
+	position: absolute;
+	margin: 5px;
+	text-align: center;
+	top: 120px;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 141px;
+	height: 31px;
+	font-family: Inter;
+	font-size: 24px;
+}
+
+.documentButtons {
+	display: block;
+	width: 39px;
+	height: 42px;
+	margin: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	top: 165px;
+}
+
+.uploadedDocument .delete {
+	left: 10px;
+}
+
+.editedDocument .delete {
+	left: 25px;
+}
+
+.uploadedDocument .download {
+	left: 58px;
+}
+
+.editedDocument .download {
+	left: 85px;
+}
+
+.uploadedDocument .edit {
+	left: 110px;
+}
+
+.delete:hover,
+.edit:hover,
+#exit:hover,
+#uploadDocument:hover {
+	cursor: pointer;
+}

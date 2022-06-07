@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "mOOBlBwShdpfcYBvROCAapon7dxLBy0ql2OTdF2IqLEe9s5TSBIXLChyZzi+Yy/BXHWu0In1wTVpXSo0By7RIQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mrcur\\Desktop\\DocumentRefactoringServer\\DocumentRefactoring\\DocumentRefactoring.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mrcur\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
+    "C:\\Users\\mrcur\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

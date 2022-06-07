@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "30ef07fb-a2d7-4c96-91ae-e853ff04a05b": {
+      "ProjectGuid": "30ef07fb-a2d7-4c96-91ae-e853ff04a05b",
+      "DisplayName": "DocumentRefactoringServer",
+      "ColorIndex": 0
+    },
+    "eb02ea5c-1a33-4871-aefa-f32f33bf209e": {
+      "ProjectGuid": "eb02ea5c-1a33-4871-aefa-f32f33bf209e",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
+    },
+    "edd1179f-e178-417e-8fe2-caee21c86343": {
+      "ProjectGuid": "edd1179f-e178-417e-8fe2-caee21c86343",
+      "DisplayName": "DocumentRefactoring",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

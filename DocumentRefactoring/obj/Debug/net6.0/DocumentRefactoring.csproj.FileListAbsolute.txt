@@ -1,0 +1,12 @@
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\bin\Debug\net6.0\DocumentRefactoring.deps.json
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\bin\Debug\net6.0\DocumentRefactoring.dll
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\bin\Debug\net6.0\ref\DocumentRefactoring.dll
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\bin\Debug\net6.0\DocumentRefactoring.pdb
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\obj\Debug\net6.0\DocumentRefactoring.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\obj\Debug\net6.0\DocumentRefactoring.AssemblyInfoInputs.cache
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\obj\Debug\net6.0\DocumentRefactoring.AssemblyInfo.cs
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\obj\Debug\net6.0\DocumentRefactoring.csproj.CoreCompileInputs.cache
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\obj\Debug\net6.0\DocumentRefactoring.dll
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\obj\Debug\net6.0\ref\DocumentRefactoring.dll
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\obj\Debug\net6.0\DocumentRefactoring.pdb
+C:\Users\mrcur\Desktop\DocumentRefactoringServer\DocumentRefactoring\obj\Debug\net6.0\DocumentRefactoring.csproj.AssemblyReference.cache

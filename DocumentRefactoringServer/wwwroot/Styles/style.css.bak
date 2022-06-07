@@ -1,0 +1,164 @@
+@font-face {
+    font-family: Inter; 
+    src: url(Inter-Regular.ttf);
+}
+
+body{
+	margin: 0;
+}
+
+#name{
+	display: inline-block;
+	width: 450px;
+	margin: 0;
+	margin-left: 20px;
+	float: left;
+	margin-top: 21px;
+	margin-bottom: 21px;
+}
+
+
+
+#header{
+	margin: 0;
+	font-family: Inter;
+	font-size: 40px;
+	height: 108px;
+	background-color: #64A9E8;
+	color: #FFFFFF;
+}
+
+#header a{
+	display: none;
+	color: #FFFFFF;
+	text-decoration: none;
+	margin-top: 21px;
+	margin-bottom: 21px;
+	float: right;
+	margin-right: 50px;
+}
+
+#exit{
+	display: inline-block;
+	float: right;
+	width: 109px;
+	height: 51px;
+	text-align: center;
+	margin-top: 28px;
+	margin-bottom: 28px;
+	margin-right: 50px;
+}
+
+#registrationButton, #exit{
+}
+
+#content{
+	margin: 0;
+	position: relative;
+}
+
+#content div{
+	display: inline-block;
+}
+
+#separator{
+	display: inline-block;
+	position: absolute;
+	left:50%;
+	right:0;
+	top:0;
+	bottom:0;
+	margin: 0;
+	width: 3px;
+	background-color: #64A9E8;
+}
+
+#uploaded,
+#edited{
+	display: inline-block;
+	box-sizing: border-box;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 49vw;
+}
+
+#edited{
+	float: right;
+}
+
+.document{
+	display: inline-block;
+	position: relative;
+	padding: 0;
+	height: 220px;
+	width: 152px;
+	margin: 15px;
+	border: 1px solid #474747;
+}
+
+.wordLogo{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 97px;
+	height: 107px;
+}
+
+.documentName{
+	display: block;
+	position: absolute;
+	margin: 5px;
+	text-align: center;
+	top: 120px;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 141px;
+	height: 31px;
+	font-family: Inter;
+	font-size: 24px;
+}
+
+.documentButtons{
+	display: block;
+	width: 39px;
+	height: 42px;
+	margin: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	top: 165px;
+}
+
+.uploadedDocument .delete{
+	left: 10px;
+}
+
+.editedDocument .delete{
+	left: 25px;
+}
+
+.uploadedDocument .download{
+	left: 58px;
+}
+
+.editedDocument .download{
+	left: 85px;
+}
+
+.uploadedDocument .edit{
+	left: 110px;
+}
+
+.delete:hover,
+.edit:hover,
+#exit:hover{
+	cursor: pointer;
+}
